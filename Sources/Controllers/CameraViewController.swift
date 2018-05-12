@@ -100,6 +100,8 @@ public final class CameraViewController: UIViewController {
     view.layer.addSublayer(videoPreviewLayer)
     view.addSubviews(settingsButton, flashButton, focusView, cameraButton)
 
+    view.bringSubview(toFront: flashButton)
+    
     torchMode = .off
     focusView.isHidden = true
     setupCamera()
