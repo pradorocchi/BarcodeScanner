@@ -32,7 +32,9 @@ public protocol BarcodeScannerDismissalDelegate: class {
  - Not found error message
  */
 open class BarcodeScannerViewController: UIViewController {
-  static let footerHeight: CGFloat = 75
+  open var footerHeight: CGFloat {
+      return 75
+  }
 
   // MARK: - Public properties
 
@@ -235,7 +237,7 @@ private extension BarcodeScannerViewController {
       cameraView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
       cameraView.bottomAnchor.constraint(
         equalTo: view.bottomAnchor,
-        constant: -BarcodeScannerViewController.footerHeight
+        constant: -footerHeight
       )
     )
 
@@ -272,7 +274,7 @@ private extension BarcodeScannerViewController {
       messageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       messageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
       messageView.heightAnchor.constraint(
-        equalToConstant: BarcodeScannerViewController.footerHeight
+        equalToConstant: footerHeight
       )
     ]
   }
